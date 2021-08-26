@@ -2,10 +2,11 @@
   "name": "copy-paste-git-branch",
   "displayName": "copy-paste-git-branch",
   "description": "Copy to system clipboard or paste name of current git branch",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.59.0"
   },
+  "icon": "icon.png",
   "categories": [
     "Other"
   ],
