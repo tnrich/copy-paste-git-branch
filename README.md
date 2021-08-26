@@ -1,5 +1,19 @@
-# copy-paste-git-branch README
+# copy-paste-git-branch
 
+The copy part of this functionality is copied from https://github.com/dKab/Copy-current-branch-vs-code-extension  
+
+I added the paste functionality
+
+Usage
+=====
+
+1. Execute `Copy name of current branch` command from Command Palette
+2. Execute `Paste name of current branch` command from Command Palette
+2. ???
+3. PROFIT
+
+
+Alternatively you can assign a keyboard shortcut to command `extension.copyBranchName` pr `extension.pasteBranchName` 
 This is the README for your extension "copy-paste-git-branch". After writing up a brief description, we recommend including the following sections.
 
 ## Features
@@ -12,20 +26,7 @@ For example if there is an image subfolder under your extension project workspac
 
 > Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
 
-## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
 
 ## Known Issues
 

@@ -5,22 +5,44 @@ import * as vscode from 'vscode';
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-	
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "copy-paste-git-branch" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('copy-paste-git-branch.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from copy-paste-git-branch!');
+	let disposable = vscode.commands.registerCommand('copy-paste-git-branch.copyBranchName', () => {
+		vscode.env.clipboard.writeText(getBranchName());
 	});
 
 	context.subscriptions.push(disposable);
+
+	let disposable2 = vscode.commands.registerCommand('copy-paste-git-branch.pasteBranchName', () => {
+		// Get the active text editor
+		const editor = vscode.window.activeTextEditor;
+		const branchName = getBranchName();
+		if (editor) {
+			const document = editor.document;
+			editor.edit(editBuilder => {
+				editor.selections.forEach(sel => {
+					const range = sel.isEmpty ? document.getWordRangeAtPosition(sel.start) || sel : sel;
+					editBuilder.replace(range, branchName);
+				});
+			});
+		}
+	});
+	context.subscriptions.push(disposable2);
+}
+
+function getBranchName() {
+	try {
+		const gitExtension = vscode.extensions.getExtension('vscode.git')?.exports;
+		const api = gitExtension.getAPI(1);
+		const repo = api.repositories[0];
+		const head = repo.state.HEAD;
+		// Get the branch and commit 
+		const { commit, name: branch } = head;
+		return branch;
+	} catch (error) {
+		console.error(`error:`, error);
+		return 'could not find branch name';
+	}
+
 }
 
 // this method is called when your extension is deactivated
-export function deactivate() {}
+export function deactivate() { }
