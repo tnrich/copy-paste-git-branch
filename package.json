@@ -15,6 +15,12 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+		"keybindings":[
+			{
+				"command": "copy-paste-git-branch.pasteBranchName",
+				"key": "cmd+option+ctrl+v"
+			}
+		],
     "commands": [
       {
         "command": "copy-paste-git-branch.copyBranchName",
@@ -22,7 +28,7 @@
       },
       {
         "command": "copy-paste-git-branch.pasteBranchName",
-        "title": "Paste name of current branch into buffer"
+        "title": "Paste name of current branch into editor"
       }
     ]
   },
