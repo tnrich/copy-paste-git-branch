@@ -13,6 +13,10 @@
     "onCommand:copy-paste-git-branch.copyBranchName",
     "onCommand:copy-paste-git-branch.pasteBranchName"
   ],
+  "repository": {
+    "url": "https://github.com/tnrich/copy-paste-git-branch"
+  },
+  "publisher": "tnrich",
   "main": "./out/extension.js",
   "contributes": {
 		"keybindings":[
