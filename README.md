@@ -4,7 +4,7 @@ Usage
 =====
 
 1. Execute `Copy name of current branch` command from Command Palette
-2. Execute `Paste name of current branch` command from Command Palette (cmd+option+ctrl+v)
+2. Execute `Paste name of current branch` command from Command Palette (ctrl+alt+cmd+v)
 2. ???
 3. PROFIT
 
